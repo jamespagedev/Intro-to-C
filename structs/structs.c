@@ -31,6 +31,8 @@ Person *createPerson(char *name, int age, int height, int weight)
   person->age = age;
   person->height = height;
   person->weight = weight;
+
+  return person;
 }
 
 /*
