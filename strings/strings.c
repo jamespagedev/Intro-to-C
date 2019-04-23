@@ -27,12 +27,36 @@ int string_length(char *s)
 */
 char *reverse_string(char *rv, char *s)
 {
+  if (*s == '\0')
+  {
+    return rv;
+  }
+  /* 1st Pass Solution
+  char *end = s + string_length(s) - 1; // last character
+  char *t2 = rv;
+  while (end >= s - 1)
+  {
+    // char temp = *end;
+    // *t2 = temp;
+    // *end = *t2;
+    // *t2 = temp;
+    // end--;
+    // t2++;
+
+    *t2 = *end; // <-- Just this
+    end--;
+    t2++;
+  }
+  t2 = '\0';
+  return rv;
+  */
+
+  // 2nd Pass Solution
   int i = 0;
   char *end = s + string_length(s) - 1;
   for (; end >= s - 1; i++)
   {
-    char temp = *end;
-    rv[i] = temp;
+    rv[i] = *end;
     end--;
   }
   rv[i] = '\0';
